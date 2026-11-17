@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="no-js" data-theme="magenta">
+<html lang="de" class="no-js" data-theme="pink">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -509,6 +509,9 @@ svg{direction:ltr}
 .pay-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
 .pay-list li{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:var(--tint);color:var(--ink);font-weight:600;font-size:.9375rem;white-space:nowrap}
 
+html[data-theme="pink"]{--sign:#C8146F;--sign-hi:#E2338C;--sign-lo:#8F0A4E;--sign-muted:#F8D7E8;--board:#7A0843;--foot-a:#4A4D52;--foot-b:#2C2E32;--signal:#FF8A1F;--signal-hi:#FFA94A;--signal-lo:#F47B0B;--signal-press:#F07A0C;--on-signal:#1C1305;}
+@media (prefers-color-scheme:light){html[data-theme="pink"]{--brand-ab:#C4146E;--link:#A8125F;--tint:#E7E7EA;--paper:#F1F1F3;--line:#DCDDE0;--line-strong:#BCBEC3;--muted:#55585E;--ink:#17181A;}}
+@media (prefers-color-scheme:dark){html[data-theme="pink"]{--brand-ab:#F25FA6;--link:#FFA94A}}
 html[data-theme="magenta"]{--sign:#26222B;--sign-hi:#3A3442;--sign-lo:#16131A;--sign-muted:#E4DCE8;--board:#1B171F;--foot-a:#221E27;--foot-b:#141117;--signal:#D81B7A;--signal-hi:#EC4B98;--signal-lo:#BE0F68;--signal-press:#B00D60;--on-signal:#FFFFFF;}
 @media (prefers-color-scheme:light){html[data-theme="magenta"]{--brand-ab:#C4146E;--link:#A8125F;--tint:#F1E8EE;--paper:#F7F3F6;--line:#E7DCE3;--line-strong:#CDBBC6;--muted:#5C4E57;--ink:#1F1620;}}
 @media (prefers-color-scheme:dark){html[data-theme="magenta"]{--brand-ab:#F25FA6;--link:#EC4B98}}
@@ -562,8 +565,8 @@ html[data-theme="schwarz"]{--sign:#1D2124;--sign-hi:#2E3439;--sign-lo:#111416;--
     <linearGradient id="lg-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--sign-hi)"/><stop offset="1" style="stop-color:var(--sign-lo)"/></linearGradient>
     <!-- Markenzeichen: Zapfpistole, deren Schlauch zum Rückpfeil wird -->
     <symbol id="g-brand" viewBox="0 0 200 200"><g transform="translate(100 100) scale(.9) translate(-113 -125)">
-      <path d="M139 50A64 64 0 0 1 87.800 166.900" fill="none" style="stroke:var(--signal)" stroke-width="15" stroke-linecap="round"/>
-      <path d="M98.400 144 53.600 155.800 83 191.600z" style="fill:var(--signal)"/>
+      <path d="M139 50A64 64 0 0 1 87.800 166.900" fill="none" style="stroke:var(--mark,var(--signal))" stroke-width="15" stroke-linecap="round"/>
+      <path d="M98.400 144 53.600 155.800 83 191.600z" style="fill:var(--mark,var(--signal))"/>
       <g transform="translate(-6 -9) rotate(-24 108 92)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
         <rect x="82" y="60" width="66" height="36" rx="11" fill="currentColor" stroke="none"/>
         <rect x="141" y="65" width="17" height="26" rx="6" fill="currentColor" stroke="none"/>
