@@ -269,9 +269,8 @@ h2{font-size:clamp(2.15rem,8.6vw,3.3rem);letter-spacing:-.006em}
 .areas{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
 .area{background:var(--surface);border-radius:var(--r);padding:22px 20px;display:grid;gap:14px;align-content:start;box-shadow:inset 0 0 0 1px var(--line),var(--shadow-card)}
 .area h3{font-size:1.75rem;line-height:1.02}
-.area-soon{background:none;box-shadow:none;border:2px dashed var(--line-strong)}
-.area-soon .soon-tag{background:var(--sign);color:#fff;margin-inline-start:4px;position:relative;top:-3px}
-.area-soon-lead{font-weight:700}
+.area-new .soon-tag{background:var(--sign);color:#fff;margin-inline-start:4px;position:relative;top:-3px}
+.area-new-lead{font-weight:700}
 .area-soon-note{font-size:.9375rem;color:var(--muted);margin-bottom:-6px}
 .area-other{margin-top:18px;font-weight:600;max-width:36rem}
 
@@ -445,7 +444,7 @@ svg{direction:ltr}
 @media (min-width:760px){
   :root{--gutter:32px}
   .areas{grid-template-columns:1fr 1fr}
-  .area-soon{grid-column:1/-1}
+  .area-new{grid-column:1/-1}
   .sheet{align-items:center;justify-items:center}
   .sheet-card{border-radius:26px;width:min(460px,calc(100vw - 48px));padding:24px}
   .chat{left:auto;top:auto;right:24px;bottom:24px;width:410px;height:min(680px,calc(100dvh - 48px));border-radius:22px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:var(--shadow)}
@@ -493,7 +492,7 @@ svg{direction:ltr}
 }
 @media (min-width:1040px){
   .areas{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .area-soon{grid-column:auto}
+  .area-new{grid-column:auto}
 }
 @media (min-width:1080px){
   .main-nav{display:flex;gap:24px;margin-inline:auto 16px}
@@ -505,8 +504,13 @@ svg{direction:ltr}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 
+.pay{grid-column:1/-1;margin-top:4px}
+.pay h3{font-size:1.0625rem;margin:0 0 10px}
+.pay-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.pay-list li{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:var(--tint);color:var(--ink);font-weight:600;font-size:.9375rem;white-space:nowrap}
+
 </style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":["AutomotiveBusiness","EmergencyService"],"name":"Tankdoktor","description":"Mobiler Abpumpservice bei Falschbetankung: Benzin im Diesel, Diesel im Benziner, AdBlue.","url":"https://tankdoktor.de/","telephone":"+491742432222","priceRange":"ab 350 €","address":{"@type":"PostalAddress","streetAddress":"Rheinische Straße 28","postalCode":"42781","addressLocality":"Haan","addressCountry":"DE"},"areaServed":["Nordrhein-Westfalen","Hessen","Rheinland-Pfalz","Bayern"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"contactPoint":[{"@type":"ContactPoint","telephone":"+491742432222","contactType":"emergency","areaServed":["DE-NW","DE-HE","DE-RP"],"availableLanguage":["de","en","tr"]},{"@type":"ContactPoint","telephone":"+491704044555","contactType":"emergency","areaServed":"DE-BY","availableLanguage":["de","en","tr"]}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Darf ich nach dem Falschtanken noch weiterfahren?","acceptedAnswer":{"@type":"Answer","text":"Nein. Solange der Motor aus bleibt, sitzt der falsche Kraftstoff nur im Tank und lässt sich abpumpen. Jeder Start verteilt ihn im Kraftstoffsystem. Die einzige Ausnahme ist die falsche Benzinsorte, etwa E10 statt E5 bei einem freigegebenen Fahrzeug."}},{"@type":"Question","name":"Ich bin schon losgefahren. Was jetzt?","acceptedAnswer":{"@type":"Answer","text":"Halten Sie an der nächsten sicheren Stelle, stellen Sie den Motor ab und starten Sie nicht erneut. Sagen Sie uns am Telefon, wie weit Sie gefahren sind. Oft genügen auch dann Abpumpen und Spülen. Ob zusätzlich eine Werkstatt nötig ist, sagen wir Ihnen ehrlich."}},{"@type":"Question","name":"Wie lange dauert der Einsatz?","acceptedAnswer":{"@type":"Answer","text":"Die Arbeit am Fahrzeug dauert meist weniger als eine Stunde. Die Anfahrt hängt von Ihrem Standort ab. Wie lange wir zu Ihnen brauchen, sagen wir Ihnen am Telefon."}},{"@type":"Question","name":"Zahlt meine Versicherung?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von Ihrem Vertrag ab. Manche Schutzbriefe und Kaskoversicherungen übernehmen einen Teil der Kosten. Sie bekommen von uns eine Rechnung, die Sie einreichen können."}},{"@type":"Question","name":"Wie kann ich bezahlen?","acceptedAnswer":{"@type":"Answer","text":"Direkt vor Ort, bar oder per Echtzeit-Überweisung."}},{"@type":"Question","name":"Welche Fahrzeuge pumpen Sie ab?","acceptedAnswer":{"@type":"Answer","text":"Pkw, Transporter, Wohnmobile und Motorräder. Bei anderen Fahrzeugen fragen Sie bitte kurz am Telefon nach."}},{"@type":"Question","name":"Was passiert mit dem abgepumpten Kraftstoff?","acceptedAnswer":{"@type":"Answer","text":"Wir nehmen das Gemisch mit und geben es zur fachgerechten Entsorgung. An der Tankstelle bleibt nichts zurück."}},{"@type":"Question","name":"Woran erkenne ich den richtigen Kraftstoff?","acceptedAnswer":{"@type":"Answer","text":"An der Form des Zeichens auf Zapfpistole und Tankklappe: Ein Kreis steht für Benzin (E5, E10), ein Quadrat für Diesel (B7). AdBlue gehört nur in den eigenen Einfüllstutzen, der meist einen blauen Deckel hat."}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":["AutomotiveBusiness","EmergencyService"],"name":"Tankdoktor","description":"Mobiler Abpumpservice bei Falschbetankung: Benzin im Diesel, Diesel im Benziner, AdBlue.","url":"https://tankdoktor.de/","telephone":"+491742432222","priceRange":"ab 350 €","address":{"@type":"PostalAddress","streetAddress":"Rheinische Straße 28","postalCode":"42781","addressLocality":"Haan","addressCountry":"DE"},"areaServed":["Nordrhein-Westfalen","Hessen","Rheinland-Pfalz","Bayern"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"contactPoint":[{"@type":"ContactPoint","telephone":"+491742432222","contactType":"emergency","areaServed":["DE-NW","DE-HE","DE-RP"],"availableLanguage":["de","en","tr"]},{"@type":"ContactPoint","telephone":"+4915211303570","contactType":"emergency","areaServed":["DE-HE","DE-RP"],"availableLanguage":["de","en","tr"]},{"@type":"ContactPoint","telephone":"+491704044555","contactType":"emergency","areaServed":"DE-BY","availableLanguage":["de","en","tr"]}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Darf ich nach dem Falschtanken noch weiterfahren?","acceptedAnswer":{"@type":"Answer","text":"Nein. Solange der Motor aus bleibt, sitzt der falsche Kraftstoff nur im Tank und lässt sich abpumpen. Jeder Start verteilt ihn im Kraftstoffsystem. Die einzige Ausnahme ist die falsche Benzinsorte, etwa E10 statt E5 bei einem freigegebenen Fahrzeug."}},{"@type":"Question","name":"Ich bin schon losgefahren. Was jetzt?","acceptedAnswer":{"@type":"Answer","text":"Halten Sie an der nächsten sicheren Stelle, stellen Sie den Motor ab und starten Sie nicht erneut. Sagen Sie uns am Telefon, wie weit Sie gefahren sind. Oft genügen auch dann Abpumpen und Spülen. Ob zusätzlich eine Werkstatt nötig ist, sagen wir Ihnen ehrlich."}},{"@type":"Question","name":"Wie lange dauert der Einsatz?","acceptedAnswer":{"@type":"Answer","text":"Die Arbeit am Fahrzeug dauert meist weniger als eine Stunde. Die Anfahrt hängt von Ihrem Standort ab. Wie lange wir zu Ihnen brauchen, sagen wir Ihnen am Telefon."}},{"@type":"Question","name":"Zahlt meine Versicherung?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von Ihrem Vertrag ab. Manche Schutzbriefe und Kaskoversicherungen übernehmen einen Teil der Kosten. Sie bekommen von uns eine Rechnung, die Sie einreichen können."}},{"@type":"Question","name":"Wie kann ich bezahlen?","acceptedAnswer":{"@type":"Answer","text":"Direkt vor Ort: bar, per Echtzeit-Überweisung, mit PayPal oder mit Karte (Visa, Mastercard, American Express, Maestro)."}},{"@type":"Question","name":"Welche Fahrzeuge pumpen Sie ab?","acceptedAnswer":{"@type":"Answer","text":"Pkw, Transporter, Wohnmobile und Motorräder. Bei anderen Fahrzeugen fragen Sie bitte kurz am Telefon nach."}},{"@type":"Question","name":"Was passiert mit dem abgepumpten Kraftstoff?","acceptedAnswer":{"@type":"Answer","text":"Wir nehmen das Gemisch mit und geben es zur fachgerechten Entsorgung. An der Tankstelle bleibt nichts zurück."}},{"@type":"Question","name":"Woran erkenne ich den richtigen Kraftstoff?","acceptedAnswer":{"@type":"Answer","text":"An der Form des Zeichens auf Zapfpistole und Tankklappe: Ein Kreis steht für Benzin (E5, E10), ein Quadrat für Diesel (B7). AdBlue gehört nur in den eigenen Einfüllstutzen, der meist einen blauen Deckel hat."}}]}]</script>
 </head>
 <body>
 
@@ -623,6 +627,10 @@ svg{direction:ltr}
           <span class="call-ico" aria-hidden="true"><svg class="ico"><use href="#i-phone"/></svg></span>
           <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">0170 404 45 55</span><span class="where" data-i18n="region.by">Bayern</span></span>
         </a>
+        <a class="btn-call" href="tel:+4915211303570" data-region="rm">
+          <span class="call-ico" aria-hidden="true"><svg class="ico"><use href="#i-phone"/></svg></span>
+          <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">01521 130 35 70</span><span class="where" data-i18n="region.rm">Frankfurt und Rhein-Main</span></span>
+        </a>
         <div class="callpanel-more">
           <a class="btn btn-ghost btn-wa-ghost" href="https://wa.me/491742432222?text=Hallo%2C%20ich%20habe%20falsch%20getankt%20und%20brauche%20Hilfe.%20Mein%20Standort%3A%20" data-open-sheet="wa" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#i-bubble"/></svg><span data-i18n="cta.wa">WhatsApp</span>
@@ -632,7 +640,6 @@ svg{direction:ltr}
           </button>
         </div>
         <p class="callpanel-note" data-i18n="hero.note">Den Festpreis nennen wir Ihnen am Telefon. Sie stehen in einem anderen Bundesland? Rufen Sie trotzdem an.</p>
-        <a class="callpanel-soon" href="#gebiet"><span class="soon-tag" data-i18n="soon.tag">Bald</span><span data-i18n="hero.soon">Eigenes Team für Frankfurt und Rhein-Main</span></a>
       </div>
     </div>
   </section>
@@ -792,6 +799,14 @@ svg{direction:ltr}
         <p data-i18n="prices.n2">Sie erhalten eine Rechnung. Ob Ihr Schutzbrief oder Ihre Versicherung etwas übernimmt, hängt von Ihrem Vertrag ab.</p>
         <p data-i18n="prices.n3">Transporter, Motorrad oder ein anderes Fahrzeug? Den Preis erfahren Sie ebenfalls direkt am Telefon.</p>
       </div>
+      <div class="pay">
+        <h3 data-i18n="prices.pay.h">So können Sie bezahlen</h3>
+        <ul class="pay-list">
+          <li data-i18n="prices.pay.cash">Bar</li>
+          <li data-i18n="prices.pay.instant">Echtzeit-Überweisung</li>
+          <li>PayPal</li><li>Visa</li><li>Mastercard</li><li>American Express</li><li>Maestro</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -816,14 +831,13 @@ svg{direction:ltr}
           <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">0170 404 45 55</span></span>
         </a>
       </div>
-      <div class="area area-soon" id="rhein-main">
-        <h3><span data-i18n="area.rm.h">Rhein-Main</span> <span class="soon-tag" data-i18n="soon.tag">Bald</span></h3>
+      <div class="area area-new" id="rhein-main">
+        <h3><span data-i18n="area.rm.h">Rhein-Main</span> <span class="soon-tag" data-i18n="soon.tag">Neu</span></h3>
         <p data-i18n="area.rm.p">Frankfurt am Main, Offenbach, Darmstadt, Wiesbaden, Mainz, Hanau, Bad Homburg, Rüsselsheim, Friedberg, Gießen, Wetzlar, Limburg, Bensheim und Worms. Dazu der weitere Umkreis bis etwa 100 Kilometer, zum Beispiel Mannheim, Ludwigshafen, Heidelberg, Marburg, Fulda und Koblenz.</p>
-        <p class="area-soon-lead" data-i18n="area.rm.soon">Hier sind wir bald mit eigenem Team und eigener Telefonnummer vor Ort.</p>
-        <p class="area-soon-note" data-i18n="area.rm.note">Bis die neue Nummer da ist, hilft Ihnen diese weiter:</p>
-        <a class="btn-call btn-call-s" href="tel:+491742432222" data-region="west">
+        <p class="area-new-lead" data-i18n="area.rm.soon">Eigenes Team mit eigener Nummer, rund um die Uhr.</p>
+        <a class="btn-call btn-call-s" href="tel:+4915211303570" data-region="rm">
           <span class="call-ico" aria-hidden="true"><svg class="ico"><use href="#i-phone"/></svg></span>
-          <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">0174 243 22 22</span></span>
+          <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">01521 130 35 70</span></span>
         </a>
       </div>
     </div>
@@ -880,7 +894,7 @@ svg{direction:ltr}
       </details>
       <details>
         <summary><span data-i18n="faq.q5">Wie kann ich bezahlen?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-        <p data-i18n="faq.a5">Direkt vor Ort, bar oder per Echtzeit-Überweisung.</p>
+        <p data-i18n="faq.a5">Direkt vor Ort: bar, per Echtzeit-Überweisung, mit PayPal oder mit Karte (Visa, Mastercard, American Express, Maestro).</p>
       </details>
       <details>
         <summary><span data-i18n="faq.q6">Welche Fahrzeuge pumpen Sie ab?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -912,6 +926,10 @@ svg{direction:ltr}
           <span class="call-ico" aria-hidden="true"><svg class="ico"><use href="#i-phone"/></svg></span>
           <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">0170 404 45 55</span><span class="where" data-i18n="region.by">Bayern</span></span>
         </a>
+        <a class="btn-call" href="tel:+4915211303570" data-region="rm">
+          <span class="call-ico" aria-hidden="true"><svg class="ico"><use href="#i-phone"/></svg></span>
+          <span class="btn-call-text"><span class="call-label" data-i18n="cta.call">Jetzt anrufen</span><span class="num">01521 130 35 70</span><span class="where" data-i18n="region.rm">Frankfurt und Rhein-Main</span></span>
+        </a>
         <div class="callpanel-more">
           <a class="btn btn-ghost btn-wa-ghost" href="https://wa.me/491742432222?text=Hallo%2C%20ich%20habe%20falsch%20getankt%20und%20brauche%20Hilfe.%20Mein%20Standort%3A%20" data-open-sheet="wa" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#i-bubble"/></svg><span data-i18n="cta.wa">WhatsApp</span>
@@ -934,7 +952,7 @@ svg{direction:ltr}
   <p>IG-Trade24 GERMANY<br>Inhaber: Ihsan Gercek<br>Rheinische Straße 28<br>42781 Haan</p>
   <h2>Kontakt</h2>
   <p>Telefon: <a href="tel:+4915222753000">+49 152 22 75 3000</a><br>E-Mail: <a href="mailto:kontakt@falschgetankt24.com">kontakt@falschgetankt24.com</a></p>
-  <p>Einsatz-Hotline NRW, Hessen und Rheinland-Pfalz: <a href="tel:+491742432222">0174 243 22 22</a><br>Einsatz-Hotline Bayern: <a href="tel:+491704044555">0170 404 45 55</a><br>Rhein-Main: eigene Nummer in Vorbereitung, bis dahin über die Hotline für Hessen</p>
+  <p>Einsatz-Hotline NRW, Hessen und Rheinland-Pfalz: <a href="tel:+491742432222">0174 243 22 22</a><br>Einsatz-Hotline Bayern: <a href="tel:+491704044555">0170 404 45 55</a><br>Einsatz-Hotline Frankfurt und Rhein-Main: <a href="tel:+4915211303570">01521 130 35 70</a></p>
   <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
   <p>Ihsan Gercek, Anschrift wie oben</p>
   <h2>Verbraucherstreitbeilegung</h2>
@@ -1021,6 +1039,7 @@ svg{direction:ltr}
     <p class="loc-status" role="status" hidden></p>
     <a class="sheet-row" data-sheet-region="west" href="tel:+491742432222"><span class="sheet-where" data-i18n="region.west">NRW, Hessen, Rheinland-Pfalz</span><span class="num">0174 243 22 22</span></a>
     <a class="sheet-row" data-sheet-region="by" href="tel:+491704044555"><span class="sheet-where" data-i18n="region.by">Bayern</span><span class="num">0170 404 45 55</span></a>
+    <a class="sheet-row" data-sheet-region="rm" href="tel:+4915211303570"><span class="sheet-where" data-i18n="region.rm">Frankfurt und Rhein-Main</span><span class="num">01521 130 35 70</span></a>
     <a class="sheet-row sheet-row-other" data-sheet-region="other" href="tel:+491742432222"><span class="sheet-where" data-i18n="region.other">Anderes Bundesland</span><span class="num">0174 243 22 22</span></a>
     <p class="sheet-note" data-i18n="sheet.note.call">Tippen Sie auf Ihr Gebiet. Ihr Telefon wählt dann die passende Nummer.</p>
   </div>
@@ -1092,7 +1111,7 @@ var I18N = {
     "hero.h1": "Wrong fuel?<br>Leave the engine off.",
     "hero.lead": "We come to you, drain the wrong fuel and flush the tank and fuel lines.<span class=\"lead-more\"> In most cases you simply drive on afterwards.</span>",
     "hero.soon": "Own crew for Frankfurt and Rhine-Main",
-    "soon.tag": "Soon",
+    "soon.tag": "New",
     "loc.btn": "Share my location",
     "loc.sub": "We connect you with the right crew",
     "loc.busy": "Finding your location …",
@@ -1124,6 +1143,7 @@ var I18N = {
     "st.TH": "Thuringia",
     "region.west": "NRW, Hesse, Rhineland-Palatinate",
     "region.by": "Bavaria",
+    "region.rm": "Frankfurt and Rhine-Main",
     "region.other": "Another federal state",
     "cta.wa": "WhatsApp",
     "cta.chat": "Chat<span class=\"lbl-more\"> now</span>",
@@ -1180,6 +1200,9 @@ var I18N = {
     "prices.n1": "<strong>We tell you the binding fixed price on the phone before we set off.</strong> No call-out fee and no hidden surcharges.",
     "prices.n2": "You get an invoice. Whether your breakdown cover or insurance pays part of it depends on your policy.",
     "prices.n3": "Van, motorbike or another vehicle? You will also get the price straight away on the phone.",
+    "prices.pay.instant": "Instant bank transfer",
+    "prices.pay.cash": "Cash",
+    "prices.pay.h": "How you can pay",
     "area.h": "Where we operate",
     "area.west.h": "North Rhine-Westphalia, Hesse and Rhineland-Palatinate",
     "area.west.p": "Cologne, Düsseldorf, Dortmund, Essen, Duisburg, Bochum, Wuppertal, Bonn, Gelsenkirchen, Mönchengladbach, Aachen, Krefeld, Leverkusen, Solingen and the places in between.",
@@ -1187,7 +1210,7 @@ var I18N = {
     "area.by.p": "Munich, Nuremberg, Augsburg, Regensburg, Ingolstadt, Würzburg, Fürth, Erlangen, Bamberg, Bayreuth, Landshut, Rosenheim, Kempten, Passau. Also along the A3, A8, A9, A93 and A99 motorways. Our permanent service partner covers this area.",
     "area.rm.h": "Rhine-Main",
     "area.rm.p": "Frankfurt am Main, Offenbach, Darmstadt, Wiesbaden, Mainz, Hanau, Bad Homburg, Rüsselsheim, Friedberg, Giessen, Wetzlar, Limburg, Bensheim and Worms. Plus the wider area up to about 100 kilometres, for example Mannheim, Ludwigshafen, Heidelberg, Marburg, Fulda and Koblenz.",
-    "area.rm.soon": "We will soon be here with our own crew and our own phone number.",
+    "area.rm.soon": "Our own crew with its own number, around the clock.",
     "area.rm.note": "Until the new number is live, this one will help you:",
     "area.other": "In another federal state? Call us. We tell you right away whether we can come to you.",
     "rating.h": "How customers rate us on Google",
@@ -1205,7 +1228,7 @@ var I18N = {
     "faq.q4": "Will my insurance pay?",
     "faq.a4": "That depends on your policy. Some breakdown covers and comprehensive insurances pay part of the cost. You get an invoice from us that you can submit.",
     "faq.q5": "How can I pay?",
-    "faq.a5": "On the spot, in cash or by instant bank transfer.",
+    "faq.a5": "On the spot: in cash, by instant bank transfer, with PayPal or by card (Visa, Mastercard, American Express, Maestro).",
     "faq.q6": "Which vehicles do you drain?",
     "faq.a6": "Cars, vans, motorhomes and motorbikes. For other vehicles please ask briefly on the phone.",
     "faq.q7": "What happens to the drained fuel?",
@@ -1247,7 +1270,7 @@ var I18N = {
     "hero.h1": "Yanlış yakıt mı?<br>Motoru çalıştırmayın.",
     "hero.lead": "Yanınıza geliyoruz, yanlış yakıtı boşaltıyor, depoyu ve yakıt hatlarını yıkıyoruz.<span class=\"lead-more\"> Çoğu durumda yolunuza hemen devam edersiniz.</span>",
     "hero.soon": "Frankfurt ve Ren-Main için kendi ekibimiz",
-    "soon.tag": "Yakında",
+    "soon.tag": "Yeni",
     "loc.btn": "Konumumu paylaş",
     "loc.sub": "Sizi doğru ekibe bağlayalım",
     "loc.busy": "Konumunuz belirleniyor …",
@@ -1279,6 +1302,7 @@ var I18N = {
     "st.TH": "Thüringen",
     "region.west": "NRW, Hessen, Rheinland-Pfalz",
     "region.by": "Bavyera",
+    "region.rm": "Frankfurt ve Ren-Main",
     "region.other": "Başka bir eyalet",
     "cta.wa": "WhatsApp",
     "cta.chat": "Sohbet<span class=\"lbl-more\"> başlat</span>",
@@ -1335,6 +1359,9 @@ var I18N = {
     "prices.n1": "<strong>Kesin sabit fiyatı yola çıkmadan önce telefonda söylüyoruz.</strong> Yol ücreti ve gizli ek ücret yok.",
     "prices.n2": "Fatura alırsınız. Yol yardım paketinizin veya sigortanızın bir kısmını karşılayıp karşılamayacağı sözleşmenize bağlıdır.",
     "prices.n3": "Panelvan, motosiklet veya başka bir araç mı? Fiyatı yine telefonda hemen öğrenirsiniz.",
+    "prices.pay.instant": "Anlık havale",
+    "prices.pay.cash": "Nakit",
+    "prices.pay.h": "Ödeme seçenekleri",
     "area.h": "Hizmet verdiğimiz bölgeler",
     "area.west.h": "Kuzey Ren-Vestfalya, Hessen ve Rheinland-Pfalz",
     "area.west.p": "Köln, Düsseldorf, Dortmund, Essen, Duisburg, Bochum, Wuppertal, Bonn, Gelsenkirchen, Mönchengladbach, Aachen, Krefeld, Leverkusen, Solingen ve aradaki yerler.",
@@ -1342,7 +1369,7 @@ var I18N = {
     "area.by.p": "Münih, Nürnberg, Augsburg, Regensburg, Ingolstadt, Würzburg, Fürth, Erlangen, Bamberg, Bayreuth, Landshut, Rosenheim, Kempten, Passau. A3, A8, A9, A93 ve A99 otoyolları boyunca da. Bu bölgede sabit servis ortağımız görev yapar.",
     "area.rm.h": "Ren-Main",
     "area.rm.p": "Frankfurt am Main, Offenbach, Darmstadt, Wiesbaden, Mainz, Hanau, Bad Homburg, Rüsselsheim, Friedberg, Gießen, Wetzlar, Limburg, Bensheim ve Worms. Ayrıca yaklaşık 100 kilometreye kadar çevresi, örneğin Mannheim, Ludwigshafen, Heidelberg, Marburg, Fulda ve Koblenz.",
-    "area.rm.soon": "Yakında burada kendi ekibimiz ve kendi telefon numaramızla hizmet vereceğiz.",
+    "area.rm.soon": "Kendi numarasıyla kendi ekibimiz, 7/24.",
     "area.rm.note": "Yeni numara açılana kadar bu numara size yardımcı olur:",
     "area.other": "Başka bir eyalette misiniz? Arayın. Size gelip gelemeyeceğimizi hemen söyleriz.",
     "rating.h": "Müşterilerimiz bizi Google'da böyle değerlendiriyor",
@@ -1360,7 +1387,7 @@ var I18N = {
     "faq.q4": "Sigortam öder mi?",
     "faq.a4": "Bu, sözleşmenize bağlıdır. Bazı yol yardım paketleri ve kasko sigortaları masrafın bir kısmını karşılar. Sigortanıza sunabileceğiniz bir fatura veririz.",
     "faq.q5": "Nasıl ödeyebilirim?",
-    "faq.a5": "Yerinde, nakit veya anlık banka havalesiyle.",
+    "faq.a5": "Yerinde: nakit, anlık banka havalesi, PayPal veya kart ile (Visa, Mastercard, American Express, Maestro).",
     "faq.q6": "Hangi araçlara hizmet veriyorsunuz?",
     "faq.a6": "Otomobil, panelvan, karavan ve motosiklet. Diğer araçlar için lütfen telefonda kısaca sorun.",
     "faq.q7": "Boşaltılan yakıta ne oluyor?",
@@ -1431,6 +1458,7 @@ var CHAT = {
     "r.he": "Hessen",
     "r.rp": "Rheinland-Pfalz",
     "r.by": "Bayern",
+    "r.rm": "Raum Frankfurt/Rhein-Main",
     "r.other": "Anderes Bundesland",
     "askPlace": "Wo genau stehen Sie? Schreiben Sie Ort, Straße oder Tankstelle. Oder lassen Sie Ihren Standort ermitteln.",
     "p.geo": "Standort ermitteln",
@@ -1474,8 +1502,8 @@ var CHAT = {
     "ans.time": "Die Arbeit am Fahrzeug dauert meist weniger als eine Stunde. Wie lange die Anfahrt dauert, hängt von Ihrem Standort ab. Das sagen wir Ihnen am Telefon.",
     "ans.ins": "Das hängt von Ihrem Vertrag ab. Manche Schutzbriefe und Kaskoversicherungen übernehmen einen Teil. Sie bekommen von uns eine Rechnung zum Einreichen.",
     "ans.drive": "Bitte nicht. Solange der Motor aus bleibt, lässt sich der falsche Kraftstoff einfach abpumpen. Einzige Ausnahme: die falsche Benzinsorte bei einem freigegebenen Fahrzeug.",
-    "ans.pay": "Direkt vor Ort, bar oder per Echtzeit-Überweisung. Sie erhalten eine Rechnung.",
-    "ans.area": "Wir sind in Nordrhein-Westfalen, Hessen, Rheinland-Pfalz und Bayern im Einsatz. Im Raum Frankfurt/Rhein-Main sind wir bald mit eigenem Team vor Ort. Anderes Bundesland? Rufen Sie kurz an, wir sagen sofort, ob wir kommen können.",
+    "ans.pay": "Direkt vor Ort: bar, per Echtzeit-Überweisung, mit PayPal oder mit Karte (Visa, Mastercard, American Express, Maestro). Sie erhalten eine Rechnung.",
+    "ans.area": "Wir sind in Nordrhein-Westfalen, Hessen, Rheinland-Pfalz und Bayern im Einsatz. Für Frankfurt und Rhein-Main gibt es ein eigenes Team mit eigener Nummer. Anderes Bundesland? Rufen Sie kurz an, wir sagen sofort, ob wir kommen können.",
     "ans.vehicles": "Wir pumpen Pkw, Transporter, Wohnmobile und Motorräder ab. Bei anderen Fahrzeugen fragen Sie bitte kurz am Telefon.",
     "ans.hours": "Wir sind rund um die Uhr erreichbar, auch nachts, sonntags und an Feiertagen.",
     "ans.human": "Gern. Am Telefon erreichen Sie direkt unseren Einsatzdienst:",
@@ -1485,7 +1513,8 @@ var CHAT = {
     "restart": "In Ordnung, wir beginnen neu.",
     "call.now": "Jetzt anrufen",
     "call.west": "NRW, Hessen, Rheinland-Pfalz",
-    "call.by": "Bayern"
+    "call.by": "Bayern",
+    "call.rm": "Frankfurt und Rhein-Main"
   },
   en: {
     "hello": "Hello, I am the automatic first-aid assistant. First things first: please leave the engine off.",
@@ -1527,6 +1556,7 @@ var CHAT = {
     "r.he": "Hesse",
     "r.rp": "Rhineland-Palatinate",
     "r.by": "Bavaria",
+    "r.rm": "Frankfurt/Rhine-Main area",
     "r.other": "Another state",
     "askPlace": "Where exactly are you? Type the town, street or petrol station. Or let me find your location.",
     "p.geo": "Find my location",
@@ -1570,8 +1600,8 @@ var CHAT = {
     "ans.time": "The work on the car usually takes less than an hour. Travel time depends on where you are. We tell you on the phone.",
     "ans.ins": "That depends on your policy. Some breakdown covers and comprehensive insurances pay part of it. You get an invoice from us to submit.",
     "ans.drive": "Please do not. As long as the engine stays off, the wrong fuel can simply be pumped out. The only exception is the wrong petrol grade in an approved car.",
-    "ans.pay": "On the spot, in cash or by instant bank transfer. You get an invoice.",
-    "ans.area": "We operate in North Rhine-Westphalia, Hesse, Rhineland-Palatinate and Bavaria. We will soon have our own crew in the Frankfurt/Rhine-Main area. Another state? Give us a quick call and we tell you right away whether we can come.",
+    "ans.pay": "On the spot: in cash, by instant bank transfer, with PayPal or by card (Visa, Mastercard, American Express, Maestro). You get an invoice.",
+    "ans.area": "We operate in North Rhine-Westphalia, Hesse, Rhineland-Palatinate and Bavaria. Frankfurt and Rhine-Main has its own crew with its own number. Another state? Give us a quick call and we tell you right away whether we can come.",
     "ans.vehicles": "We drain cars, vans, motorhomes and motorbikes. For other vehicles please ask on the phone.",
     "ans.hours": "We are available around the clock, including nights, Sundays and public holidays.",
     "ans.human": "Of course. On the phone you reach our dispatch directly:",
@@ -1581,7 +1611,8 @@ var CHAT = {
     "restart": "All right, let us start again.",
     "call.now": "Call now",
     "call.west": "NRW, Hesse, Rhineland-Palatinate",
-    "call.by": "Bavaria"
+    "call.by": "Bavaria",
+    "call.rm": "Frankfurt and Rhine-Main"
   },
   tr: {
     "hello": "Merhaba, ben otomatik acil yardım asistanıyım. Önce en önemlisi: Lütfen motoru çalıştırmayın.",
@@ -1623,6 +1654,7 @@ var CHAT = {
     "r.he": "Hessen",
     "r.rp": "Rheinland-Pfalz",
     "r.by": "Bavyera",
+    "r.rm": "Frankfurt/Ren-Main bölgesi",
     "r.other": "Başka bir eyalet",
     "askPlace": "Tam olarak neredesiniz? Şehri, sokağı veya istasyonu yazın. İsterseniz konumunuzu ben bulayım.",
     "p.geo": "Konumumu bul",
@@ -1666,8 +1698,8 @@ var CHAT = {
     "ans.time": "Araçtaki işlem genellikle bir saatten kısa sürer. Yol süresi bulunduğunuz yere bağlıdır; telefonda söyleriz.",
     "ans.ins": "Bu, sözleşmenize bağlıdır. Bazı yol yardım paketleri ve kasko sigortaları bir kısmını karşılar. Sigortanıza sunmanız için fatura veririz.",
     "ans.drive": "Lütfen etmeyin. Motor kapalı kaldığı sürece yanlış yakıt kolayca boşaltılır. Tek istisna, onaylı bir araçta yanlış benzin türüdür.",
-    "ans.pay": "Yerinde, nakit veya anlık banka havalesiyle. Fatura alırsınız.",
-    "ans.area": "Kuzey Ren-Vestfalya, Hessen, Rheinland-Pfalz ve Bavyera'da hizmet veriyoruz. Frankfurt/Ren-Main bölgesinde yakında kendi ekibimizle hizmet vereceğiz. Başka bir eyalette misiniz? Kısaca arayın, gelip gelemeyeceğimizi hemen söyleriz.",
+    "ans.pay": "Yerinde: nakit, anlık banka havalesi, PayPal veya kart ile (Visa, Mastercard, American Express, Maestro). Fatura alırsınız.",
+    "ans.area": "Kuzey Ren-Vestfalya, Hessen, Rheinland-Pfalz ve Bavyera'da hizmet veriyoruz. Frankfurt ve Ren-Main için kendi numarasıyla ayrı bir ekibimiz var. Başka bir eyalette misiniz? Kısaca arayın, gelip gelemeyeceğimizi hemen söyleriz.",
     "ans.vehicles": "Otomobil, panelvan, karavan ve motosiklete hizmet veriyoruz. Diğer araçlar için lütfen telefonda sorun.",
     "ans.hours": "7 gün 24 saat ulaşabilirsiniz; gece, pazar ve resmî tatiller dahil.",
     "ans.human": "Elbette. Telefonda doğrudan ekibimize ulaşırsınız:",
@@ -1677,7 +1709,8 @@ var CHAT = {
     "restart": "Tamam, baştan başlıyoruz.",
     "call.now": "Hemen ara",
     "call.west": "NRW, Hessen, Rheinland-Pfalz",
-    "call.by": "Bavyera"
+    "call.by": "Bavyera",
+    "call.rm": "Frankfurt ve Ren-Main"
   }
 };
 
@@ -1687,7 +1720,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
 (function () {
   'use strict';
 
-  var CFG = {"regions": {"west": {"tel": "+491742432222", "num": "0174 243 22 22", "wa": "491742432222"}, "by": {"tel": "+491704044555", "num": "0170 404 45 55", "wa": "491704044555"}}, "soon": {"rm": {"center": [50.1109, 8.6821], "radiusKm": 60, "fallback": "west"}}, "price": {"car": "350", "camper": "450"}, "waText": "Hallo, ich habe falsch getankt und brauche Hilfe. Mein Standort: ", "packs": {"ar": "348a17f3", "pl": "9ef70daf", "ro": "a9da7b91", "ru": "1a26d404", "uk": "d7c535dc"}};
+  var CFG = {"regions": {"west": {"tel": "+491742432222", "num": "0174 243 22 22", "wa": "491742432222"}, "by": {"tel": "+491704044555", "num": "0170 404 45 55", "wa": "491704044555"}, "rm": {"tel": "+4915211303570", "num": "01521 130 35 70", "wa": "4915211303570"}}, "soon": {"rm": {"center": [50.1109, 8.6821], "radiusKm": 60}, "rm-hd": {"center": [49.44, 8.58], "radiusKm": 22, "region": "rm"}}, "price": {"car": "350", "camper": "450"}, "waText": "Hallo, ich habe falsch getankt und brauche Hilfe. Mein Standort: ", "packs": {"ar": "af8b36cd", "pl": "0b5820f5", "ro": "f0d09594", "ru": "ded679b2", "uk": "0c7cc8cb"}};
   var doc = document;
   var root = doc.documentElement;
 
@@ -1835,7 +1868,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   var FRAMED = (function () { try { return window.self !== window.top; } catch (e) { return true; } })();
   var GEO_OK = !!navigator.geolocation && window.isSecureContext !== false && !FRAMED; /* eingebettet (Vorschau) sperrt der Browser die Abfrage */
   if (!GEO_OK) { root.classList.add('no-geo'); }
-  function setRegion(r) { if (r === 'west' || r === 'by') { region = r; } }
+  function setRegion(r) { if (r === 'west' || r === 'by' || r === 'rm') { region = r; } }
   function soonAt(lat, lon) {
     var hit = null;
     Object.keys(CFG.soon || {}).forEach(function (k) {
@@ -1848,7 +1881,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     var code = stateAt(lat, lon);
     var r = code === 'BY' ? 'by' : (STATE_KEY[code] ? 'west' : null);
     var soon = (code && code !== 'BY') ? soonAt(lat, lon) : null;
-    if (soon && !r) { r = CFG.soon[soon].fallback || 'west'; }
+    if (soon) { r = CFG.soon[soon].region || soon; soon = r; } /* Raum Frankfurt/Rhein-Main hat ein eigenes Team */
     return { lat: lat, lon: lon, acc: acc, code: code, region: r, soon: soon };
   }
   function waDefault() {
@@ -1869,7 +1902,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     var mine = (locState === 'ok' && fix) ? fix.region : null;
     $$('[data-sheet-region]', sheet).forEach(function (a) {
       var key = a.getAttribute('data-sheet-region');
-      var r = key === 'by' ? 'by' : 'west';
+      var r = CFG.regions[key] ? key : 'west';
       if (sheetMode === 'wa') { a.href = waHref(r); a.rel = 'noopener'; } else { a.href = 'tel:' + CFG.regions[r].tel; a.removeAttribute('rel'); }
       a.classList.toggle('is-hidden', !!mine && key !== mine);
     });
@@ -1889,7 +1922,6 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     });
     if (ok) {
       if (!fix.code) { status = t('loc.abroad'); }
-      else if (fix.soon) { status = t('loc.soon'); }
       else if (!fix.region) { status = t('loc.other'); }
     } else if (locState === 'denied') { status = t('loc.denied'); }
     else if (locState === 'fail') { status = t('loc.fail'); }
@@ -1897,7 +1929,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     $$('.callpanel .btn-call').forEach(function (a) {
       var r = a.getAttribute('data-region'), where = $('.where', a);
       a.classList.toggle('is-other', !!mine && r !== mine);
-      if (where) { where.innerHTML = (mine && r === mine && STATE_KEY[fix.code]) ? t('loc.team').replace('{state}', t('st.' + fix.code)) : defaultText(where); }
+      if (where) { where.innerHTML = (mine && r === mine && r === 'rm') ? t('loc.team').replace('{state}', t('loc.rm')) : ((mine && r === mine && STATE_KEY[fix.code]) ? t('loc.team').replace('{state}', t('st.' + fix.code)) : defaultText(where)); }
     });
     if (region) {
       $$('a[data-open-sheet]').forEach(function (a) { a.href = a.getAttribute('data-open-sheet') === 'wa' ? waHref(region) : 'tel:' + CFG.regions[region].tel; });
@@ -2030,7 +2062,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
       S.placeDone = true;
       S.code = fix.code;
       S.soon = fix.soon;
-      S.state = STATE_KEY[fix.code] || 'other';
+      S.state = fix.region === 'rm' ? 'rm' : (STATE_KEY[fix.code] || 'other');
       S.region = fix.region || 'west';
     }
   }
@@ -2093,7 +2125,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   function callCard() {
     enqueue(function () {
       var card = el('div', 'result');
-      (region ? [region] : ['west', 'by']).forEach(function (r) { card.appendChild(callBtn(r)); });
+      (region ? [region] : ['west', 'rm', 'by']).forEach(function (r) { card.appendChild(callBtn(r)); });
       logEl.appendChild(card);
     }, 250);
   }
@@ -2142,13 +2174,13 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   function setState(s) {
     S.state = s;
     S.code = null;
-    S.region = s === 'by' ? 'by' : 'west';
+    S.region = s === 'by' ? 'by' : (s === 'rm' ? 'rm' : 'west');
     if (s !== 'other') { setRegion(S.region); }
   }
   function askRegion() {
     S.asked = 'region';
     say(T('askRegion'));
-    chips((GEO_OK ? [{ label: T('p.share'), cls: 'chip-loc', go: locateChat }] : []).concat(['nrw', 'he', 'rp', 'by', 'other'].map(function (s) {
+    chips((GEO_OK ? [{ label: T('p.share'), cls: 'chip-loc', go: locateChat }] : []).concat(['nrw', 'rm', 'he', 'rp', 'by', 'other'].map(function (s) {
       return { label: T('r.' + s), go: function () { setState(s); next(); } };
     })));
   }
@@ -2172,7 +2204,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
         S.soon = fix.soon;
         S.code = fix.code;
         if (fix.code) {
-          setState(STATE_KEY[fix.code] || 'other');
+          setState(fix.region === 'rm' ? 'rm' : (STATE_KEY[fix.code] || 'other'));
           S.code = fix.code;
           say(T('geo.ok', { m: String(fix.acc) }) + ' ' + T('geo.in', { state: t('st.' + fix.code) }));
         } else {
@@ -2218,7 +2250,6 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
       });
       card.appendChild(dl);
       card.appendChild(el('p', '', T(S.state === 'other' ? 'res.other' : 'res.lead')));
-      if (S.soon && S.state !== 'other') { card.appendChild(el('p', 'result-soon', T('res.soon'))); }
       card.appendChild(callBtn(r));
       var wa = el('a', 'btn btn-wa', BUBBLE + '<span>' + T('res.wa') + '</span>');
       wa.href = waHref(r, waMessage());
@@ -2337,12 +2368,12 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     ['by', 'aschaffenburg', 'Aschaffenburg'], ['by', 'passau', 'Passau'], ['by', 'schweinfurt', 'Schweinfurt'], ['by', 'straubing', 'Straubing'], ['by', 'freising', 'Freising']
   ].map(function (c) { return { state: c[0], rx: new RegExp('\\b(?:' + c[1] + ')\\b'), name: c[2] }; });
   /* Orte, für die bald das eigene Team Rhein-Main zuständig ist */
-  var SOON_RX = /\b(?:frankfurt|offenbach|darmstadt|wiesbaden|mainz|hanau|russelsheim|ruesselsheim|bad homburg|oberursel|eschborn|neu-isenburg|neu isenburg|dreieich|rodgau|bad vilbel|maintal|bad nauheim|dietzenbach|giessen|wetzlar|limburg|bensheim|worms|rhein-main|rhein main|rhine-main)\b/;
+  var SOON_RX = /\b(?:frankfurt|offenbach|darmstadt|wiesbaden|mainz|hanau|russelsheim|ruesselsheim|bad homburg|oberursel|eschborn|neu-isenburg|neu isenburg|dreieich|rodgau|bad vilbel|maintal|bad nauheim|dietzenbach|giessen|wetzlar|limburg|bensheim|worms|heidelberg|mannheim|schwetzingen|weinheim|rhein-main|rhein main|rhine-main)\b/;
   function plzSoon(p) {
     var a = parseInt(p.slice(0, 2), 10);
     var b = parseInt(p.slice(0, 3), 10);
     if (b >= 637 && b <= 639) { return null; }
-    if (a === 60 || a === 61 || a === 63 || a === 64 || a === 65 || (b >= 550 && b <= 552) || (b >= 353 && b <= 355)) { return 'rm'; }
+    if (a === 60 || a === 61 || a === 63 || a === 64 || a === 65 || (b >= 550 && b <= 552) || (b >= 353 && b <= 355) || b === 681 || b === 682 || b === 683 || b === 691) { return 'rm'; }
     return null;
   }
 
@@ -2421,7 +2452,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
       S.place = text.slice(0, 160);
       S.placeDone = true;
       if (u.state && !S.state) { setState(u.state); }
-      if (u.soon) { S.soon = u.soon; }
+      if (u.soon) { S.soon = u.soon; if (S.state !== 'by') { setState('rm'); } }
       next();
       return;
     }
@@ -2432,7 +2463,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     if (u.vehicle && !S.vehicle) { S.vehicle = u.vehicle; got.push(T('v.' + u.vehicle)); }
     if (u.state && !S.state) { setState(u.state); got.push((u.place ? u.place + ', ' : '') + T('r.' + u.state)); }
     if (u.place && !S.place) { S.place = u.place; }
-    if (u.soon) { S.soon = u.soon; }
+    if (u.soon) { S.soon = u.soon; if (S.state !== 'by') { setState('rm'); } }
     if (got.length) { say(T('understood', { list: got.join(', ') })); }
     if (engineNew) { advise(); }
     if (u.intent) {
