@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin: Farbthema | Tankdoktor</title>
+<style>
+:root{--bg:#F3F4F6;--card:#fff;--ink:#14181C;--muted:#5B6570;--line:#DDE1E6;--accent:#14181C;--ok:#1A7446;--err:#B8251A;
+  font:400 16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px max(20px,env(safe-area-inset-left))}
+header h1{margin:0;font-size:1.25rem}
+header p{margin:2px 0 0;color:var(--muted);font-size:.9375rem}
+main{max-width:1180px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-left)) 120px;display:grid;gap:24px}
+@media (min-width:960px){main{grid-template-columns:minmax(0,1fr) 420px;align-items:start}}
+h2{font-size:1.0625rem;margin:0 0 12px}
+.now{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:16px;font-size:.9375rem}
+.now b{font-weight:700}
+.themes{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.theme{position:relative;display:grid;gap:10px;padding:14px;border-radius:16px;background:var(--card);border:2px solid var(--line);cursor:pointer;text-align:start;font:inherit;color:inherit}
+.theme:focus-visible{outline:3px solid #2563EB;outline-offset:2px}
+.theme[aria-checked="true"]{border-color:var(--accent);box-shadow:0 8px 24px -14px rgba(0,0,0,.5)}
+.theme[aria-checked="true"]::after{content:"Ausgewählt";position:absolute;bottom:12px;inset-inline-end:12px;font-size:.75rem;font-weight:700;background:var(--accent);color:#fff;border-radius:999px;padding:2px 9px}
+.swatch{display:flex;align-items:center;gap:10px;height:64px;border-radius:12px;padding:0 12px}
+.swatch .pill{flex:1;height:30px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-weight:800;font-size:.875rem}
+.swatch .dot{width:30px;height:30px;border-radius:50%;background:#fff}
+.theme strong{font-size:1rem}
+.theme span.note{color:var(--muted);font-size:.875rem;line-height:1.4}
+.preview{position:sticky;top:16px}
+.phone{width:100%;max-width:390px;aspect-ratio:390/760;margin:0 auto;border-radius:30px;overflow:hidden;border:10px solid #14181C;background:#14181C;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.phone iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+.save{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px;display:grid;gap:12px}
+label{font-weight:600;font-size:.9375rem}
+.check{display:flex;gap:10px;align-items:center;font-weight:400}
+.check input{width:22px;height:22px}
+input[type=password]{width:100%;min-height:46px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font:inherit}
+button.go{min-height:52px;border:0;border-radius:12px;background:var(--accent);color:#fff;font:700 1rem/1 inherit;font-family:inherit;cursor:pointer}
+button.go[disabled]{opacity:.5;cursor:default}
+button.link{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:.875rem;cursor:pointer;justify-self:start}
+.msg{margin:0;font-size:.9375rem}
+.msg.ok{color:var(--ok)}.msg.err{color:var(--err)}
+.hint{margin:0;color:var(--muted);font-size:.875rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>Farbthema der Website</h1>
+  <p>Tankdoktor · Admin-Bereich</p>
+</header>
+<main>
+  <section aria-labelledby="h-themes">
+    <p class="now" id="now">Aktives Thema wird geladen …</p>
+    <h2 id="h-themes">Thema auswählen</h2>
+    <div class="themes" id="themes" role="radiogroup" aria-labelledby="h-themes"></div>
+  </section>
+  <section class="preview" aria-labelledby="h-prev">
+    <h2 id="h-prev">Vorschau auf dem Handy</h2>
+    <div class="phone"><iframe id="frame" title="Vorschau der Website mit dem ausgewählten Farbthema" src="../"></iframe></div>
+    <div class="save">
+      <label class="check"><input type="checkbox" id="both" checked> Auf beiden Websites übernehmen</label>
+      <div id="keybox">
+        <label for="key">Zugangsschlüssel</label>
+        <input type="password" id="key" autocomplete="off" spellcheck="false">
+        <p class="hint">Den Schlüssel bekommen Sie einmalig vom Betreuer der Seite. Er wird nur auf diesem Gerät gespeichert.</p>
+      </div>
+      <button type="button" class="link" id="forget" hidden>Gespeicherten Schlüssel auf diesem Gerät löschen</button>
+      <button type="button" class="go" id="save">Thema übernehmen</button>
+      <p class="msg" id="msg" role="status"></p>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  var THEMES = {"petrol": {"name": "Petrol & Orange", "note": "Der jetzige Stand: Verkehrsschild-Petrol, Anruf in Orange.", "sign": "#0B4650", "sign-hi": "#136572", "sign-lo": "#06323B", "sign-muted": "#CFE3E4", "board": "#062A31", "foot-a": "#07343D", "foot-b": "#04252B", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#0D5C69", "tint": "#E8EFEF", "paper": "#F2F5F5", "line": "#DBE4E3", "line-strong": "#B3C5C4", "muted": "#4A636B", "ink": "#0A2228"}, "magenta": {"name": "Magenta & Anthrazit", "note": "Dunkles Anthrazit, Anruf-Knöpfe in kräftigem Magenta.", "sign": "#26222B", "sign-hi": "#3A3442", "sign-lo": "#16131A", "sign-muted": "#E4DCE8", "board": "#1B171F", "foot-a": "#221E27", "foot-b": "#141117", "signal": "#D81B7A", "signal-hi": "#EC4B98", "signal-lo": "#BE0F68", "signal-press": "#B00D60", "on-signal": "#FFFFFF", "brand-ab": "#C4146E", "brand-ab-dark": "#F25FA6", "link": "#A8125F", "tint": "#F1E8EE", "paper": "#F7F3F6", "line": "#E7DCE3", "line-strong": "#CDBBC6", "muted": "#5C4E57", "ink": "#1F1620"}, "nachtblau": {"name": "Nachtblau & Gelb", "note": "Ruhiges Dunkelblau, Anruf in Signalgelb wie bei der Pannenhilfe.", "sign": "#12306A", "sign-hi": "#1D4A94", "sign-lo": "#0A1D45", "sign-muted": "#D4DFF2", "board": "#0B2150", "foot-a": "#0F2858", "foot-b": "#08183A", "signal": "#FFC21A", "signal-hi": "#FFD456", "signal-lo": "#F2AF00", "signal-press": "#E5A500", "on-signal": "#1A1300", "brand-ab": "#A97400", "brand-ab-dark": "#FFC21A", "link": "#1D4A94", "tint": "#E8EDF6", "paper": "#F2F5FA", "line": "#D9E0EC", "line-strong": "#B2BFD6", "muted": "#4A5670", "ink": "#0B1630"}, "rot": {"name": "Notdienst-Rot & Gelb", "note": "Kräftiges Rot wie ein Einsatzfahrzeug, Anruf in Gelb.", "sign": "#9A1C1C", "sign-hi": "#BE2A26", "sign-lo": "#651010", "sign-muted": "#F6D9D6", "board": "#5A0E0E", "foot-a": "#6E1313", "foot-b": "#470A0A", "signal": "#FFCC2E", "signal-hi": "#FFDB66", "signal-lo": "#F5B800", "signal-press": "#E8AE00", "on-signal": "#1F1500", "brand-ab": "#B42318", "brand-ab-dark": "#FFCC2E", "link": "#9A1C1C", "tint": "#F6EAE8", "paper": "#FAF4F3", "line": "#EBDCDA", "line-strong": "#D3BAB6", "muted": "#644B48", "ink": "#2A1110"}, "gruen": {"name": "Tankstellen-Grün & Gelb", "note": "Sattes Grün, Anruf in warmem Gelb.", "sign": "#0F5132", "sign-hi": "#177046", "sign-lo": "#08351F", "sign-muted": "#D3EADD", "board": "#0A3A24", "foot-a": "#0D4229", "foot-b": "#072B1A", "signal": "#FFB703", "signal-hi": "#FFCB45", "signal-lo": "#F2A500", "signal-press": "#E59C00", "on-signal": "#1C1300", "brand-ab": "#B97C00", "brand-ab-dark": "#FFB703", "link": "#177046", "tint": "#E6F0EA", "paper": "#F2F7F4", "line": "#D8E5DD", "line-strong": "#B1C9BA", "muted": "#46604F", "ink": "#0B2416"}, "schwarz": {"name": "Schwarz & Orange", "note": "Fast schwarz und schlicht, Anruf in Orange.", "sign": "#1D2124", "sign-hi": "#2E3439", "sign-lo": "#111416", "sign-muted": "#DDE2E5", "board": "#16191B", "foot-a": "#1A1D20", "foot-b": "#0F1113", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#B85400", "tint": "#ECEEEF", "paper": "#F4F5F6", "line": "#DFE2E4", "line-strong": "#BCC2C6", "muted": "#50585E", "ink": "#121517"}};
+  var REPOS = ["trawigo67-web/falschtanknotdienst-de", "trawigo67-web/tankdoktor-de"];
+  var OWN = "trawigo67-web/tankdoktor-de";
+  var KEY = 'tankAdminKey';
+  var list = document.getElementById('themes'), frame = document.getElementById('frame');
+  var msg = document.getElementById('msg'), keyIn = document.getElementById('key');
+  var keybox = document.getElementById('keybox'), forget = document.getElementById('forget');
+  var current = null, picked = null;
+  function store(k, v) { try { if (v == null) { localStorage.removeItem(k); } else { localStorage.setItem(k, v); } } catch (e) {} }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function say(text, kind) { msg.textContent = text; msg.className = 'msg' + (kind ? ' ' + kind : ''); }
+  function syncKey() { var has = !!read(KEY); keybox.hidden = has; forget.hidden = !has; }
+
+  Object.keys(THEMES).forEach(function (k) {
+    var t = THEMES[k];
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'theme'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', 'false'); b.dataset.key = k;
+    b.innerHTML = '<span class="swatch" style="background:linear-gradient(155deg,' + t['sign-hi'] + ',' + t['sign-lo'] + ')"><span class="dot"></span>' +
+      '<span class="pill" style="background:' + t.signal + ';color:' + t['on-signal'] + '">Jetzt anrufen</span></span>' +
+      '<strong></strong><span class="note"></span>';
+    b.querySelector('strong').textContent = t.name;
+    b.querySelector('.note').textContent = t.note;
+    b.addEventListener('click', function () { pick(k); });
+    list.appendChild(b);
+  });
+  function pick(k) {
+    picked = k;
+    [].forEach.call(list.children, function (b) { b.setAttribute('aria-checked', String(b.dataset.key === k)); });
+    frame.src = '../?theme=' + k;
+    say(k === current ? 'Dieses Thema ist bereits aktiv.' : '');
+  }
+  fetch('../', { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (html) {
+    var m = /<html[^>]*data-theme="([a-z]+)"/.exec(html);
+    current = m && THEMES[m[1]] ? m[1] : 'petrol';
+    document.getElementById('now').innerHTML = 'Aktiv auf der Website: <b></b>';
+    document.querySelector('#now b').textContent = THEMES[current].name;
+    pick(current);
+  }).catch(function () { document.getElementById('now').textContent = 'Das aktive Thema konnte nicht gelesen werden.'; pick('petrol'); });
+
+  /* Text sicher nach Base64 und zurück (Umlaute, Arabisch, Kyrillisch) */
+  function toB64(s) { var bytes = new TextEncoder().encode(s), bin = ''; for (var i = 0; i < bytes.length; i += 32768) { bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768)); } return btoa(bin); }
+  function fromB64(b) { var bin = atob(b.replace(/\s/g, '')), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) { u[i] = bin.charCodeAt(i); } return new TextDecoder().decode(u); }
+  function api(token, repo, path, opts) {
+    opts = opts || {};
+    return fetch('https://api.github.com/repos/' + repo + '/contents/' + path, {
+      method: opts.method || 'GET', cache: 'no-store',
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+      body: opts.body ? JSON.stringify(opts.body) : undefined
+    }).then(function (r) {
+      if (r.status === 404 && opts.allow404) { return null; }
+      if (!r.ok) { var e = new Error('http ' + r.status); e.status = r.status; throw e; }
+      return r.json();
+    });
+  }
+  function apply(token, repo, theme) {
+    var msgText = 'Farbthema: ' + THEMES[theme].name + ' (Admin-Bereich)';
+    return api(token, repo, 'index.html').then(function (f) {
+      var html = fromB64(f.content);
+      var next = html.replace(/(<html[^>]*data-theme=")[a-z]+(")/, '$1' + theme + '$2');
+      if (next === html && html.indexOf('data-theme="' + theme + '"') < 0) { throw new Error('marker'); }
+      if (next === html) { return; }
+      return api(token, repo, 'index.html', { method: 'PUT', body: { message: msgText, content: toB64(next), sha: f.sha } });
+    }).then(function () {
+      return api(token, repo, 'theme.txt', { allow404: true });
+    }).then(function (f) {
+      var body = { message: msgText, content: toB64(theme + '\n') };
+      if (f) { if (fromB64(f.content).trim() === theme) { return; } body.sha = f.sha; }
+      return api(token, repo, 'theme.txt', { method: 'PUT', body: body });
+    });
+  }
+  document.getElementById('save').addEventListener('click', function () {
+    var btn = this;
+    if (!picked) { return; }
+    var token = read(KEY) || keyIn.value.trim();
+    if (!token) { say('Bitte zuerst den Zugangsschlüssel eingeben.', 'err'); keyIn.focus(); return; }
+    var repos = document.getElementById('both').checked ? REPOS : [OWN];
+    btn.disabled = true; say('Wird übernommen …');
+    repos.reduce(function (p, r) { return p.then(function () { return apply(token, r, picked); }); }, Promise.resolve())
+      .then(function () {
+        store(KEY, token); keyIn.value = ''; syncKey();
+        current = picked;
+        document.querySelector('#now b').textContent = THEMES[current].name;
+        say('Gespeichert. In etwa ein bis zwei Minuten sehen alle Besucher das neue Thema.', 'ok');
+      })
+      .catch(function (e) {
+        if (e.status === 401 || e.status === 403) { store(KEY, null); syncKey(); say('Der Zugangsschlüssel stimmt nicht oder ist abgelaufen. Bitte neu eingeben.', 'err'); }
+        else if (e.status === 409) { say('Gerade wurde gleichzeitig etwas geändert. Bitte in einer Minute noch einmal versuchen.', 'err'); }
+        else { say('Das hat nicht geklappt. Bitte Internetverbindung prüfen und noch einmal versuchen.', 'err'); }
+      })
+      .then(function () { btn.disabled = false; });
+  });
+  forget.addEventListener('click', function () { store(KEY, null); syncKey(); say('Schlüssel auf diesem Gerät gelöscht.'); });
+  syncKey();
+})();
+</script>
+</body>
+</html>
