@@ -1832,7 +1832,8 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   var locBusy = false;
   var locCbs = [];
   /* Standortabfrage gibt es nur über eine verschlüsselte Verbindung; sonst bleibt der Knopf weg */
-  var GEO_OK = !!navigator.geolocation && window.isSecureContext !== false;
+  var FRAMED = (function () { try { return window.self !== window.top; } catch (e) { return true; } })();
+  var GEO_OK = !!navigator.geolocation && window.isSecureContext !== false && !FRAMED; /* eingebettet (Vorschau) sperrt der Browser die Abfrage */
   if (!GEO_OK) { root.classList.add('no-geo'); }
   function setRegion(r) { if (r === 'west' || r === 'by') { region = r; } }
   function soonAt(lat, lon) {
