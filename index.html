@@ -101,6 +101,7 @@ svg.ico{width:1.5em;height:1.5em;flex:none;fill:none;stroke:currentColor;stroke-
 .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:10px}
 .skip:focus{top:calc(12px + env(safe-area-inset-top))}
 .no-js [data-open-chat],.no-js .chat-fab,.no-js .locator,.no-js .loc-btn{display:none}
+.no-geo .locator,.no-geo .loc-btn,.no-geo .loc-status{display:none}
 
 /* Kopfzeile */
 .site-header{padding-top:env(safe-area-inset-top)}
@@ -1757,6 +1758,9 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   var locState = 'idle';  /* idle | busy | ok | denied | fail */
   var locBusy = false;
   var locCbs = [];
+  /* Standortabfrage gibt es nur über eine verschlüsselte Verbindung; sonst bleibt der Knopf weg */
+  var GEO_OK = !!navigator.geolocation && window.isSecureContext !== false;
+  if (!GEO_OK) { root.classList.add('no-geo'); }
   function setRegion(r) { if (r === 'west' || r === 'by') { region = r; } }
   function soonAt(lat, lon) {
     var hit = null;
@@ -1835,7 +1839,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
       var cbs = locCbs; locCbs = [];
       cbs.forEach(function (cb) { cb(success); });
     }
-    if (!navigator.geolocation) { finish('fail', false); return; }
+    if (!GEO_OK) { finish('fail', false); return; }
     var fresh = locState === 'ok'; /* erneutes Antippen: Standort neu messen statt den letzten zu nehmen */
     locBusy = true;
     if (!auto) { locState = 'busy'; renderLocator(); }
@@ -2069,17 +2073,16 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   function askRegion() {
     S.asked = 'region';
     say(T('askRegion'));
-    chips([{ label: T('p.share'), cls: 'chip-loc', go: locateChat }].concat(['nrw', 'he', 'rp', 'by', 'other'].map(function (s) {
+    chips((GEO_OK ? [{ label: T('p.share'), cls: 'chip-loc', go: locateChat }] : []).concat(['nrw', 'he', 'rp', 'by', 'other'].map(function (s) {
       return { label: T('r.' + s), go: function () { setState(s); next(); } };
     })));
   }
   function askPlace() {
     S.asked = 'place';
     say(T('askPlace'));
-    chips([
-      { label: T('p.geo'), go: locateChat },
+    chips((GEO_OK ? [{ label: T('p.geo'), go: locateChat }] : []).concat([
       { label: T('p.skip'), go: function () { S.placeDone = true; next(); } }
-    ]);
+    ]));
   }
   function geoFail() { S.asked = 'place'; say(T('geo.fail')); }
   function locateChat() {
@@ -2501,7 +2504,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
   })();
   renderLocator();
   /* Wurde die Standortfreigabe für diese Seite schon früher erteilt, gleich die passende Nummer zeigen */
-  if (navigator.geolocation && navigator.permissions && navigator.permissions.query) {
+  if (GEO_OK && navigator.permissions && navigator.permissions.query) {
     try {
       navigator.permissions.query({ name: 'geolocation' }).then(function (st) { if (st && st.state === 'granted') { locate(true); } }, function () { /* Abfrage nicht möglich */ });
     } catch (e) { /* ältere Browser */ }
