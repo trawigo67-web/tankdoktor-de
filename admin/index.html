@@ -75,7 +75,7 @@ button.link{background:none;border:0;padding:0;color:var(--muted);text-decoratio
 </main>
 <script>
 (function () {
-  var THEMES = {"pink": {"name": "Pink, Grau & Orange", "note": "Äußerer Bereich in Pink, Anruf-Knöpfe in Orange, Hintergrund und Fußbereich grau.", "sign": "#C8146F", "sign-hi": "#E2338C", "sign-lo": "#8F0A4E", "sign-muted": "#F8D7E8", "board": "#7A0843", "foot-a": "#4A4D52", "foot-b": "#2C2E32", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#C4146E", "brand-ab-dark": "#F25FA6", "link": "#A8125F", "tint": "#E7E7EA", "paper": "#F1F1F3", "line": "#DCDDE0", "line-strong": "#BCBEC3", "muted": "#55585E", "ink": "#17181A"}, "petrol": {"name": "Petrol & Orange", "note": "Der jetzige Stand: Verkehrsschild-Petrol, Anruf in Orange.", "sign": "#0B4650", "sign-hi": "#136572", "sign-lo": "#06323B", "sign-muted": "#CFE3E4", "board": "#062A31", "foot-a": "#07343D", "foot-b": "#04252B", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#0D5C69", "tint": "#E8EFEF", "paper": "#F2F5F5", "line": "#DBE4E3", "line-strong": "#B3C5C4", "muted": "#4A636B", "ink": "#0A2228"}, "magenta": {"name": "Magenta & Anthrazit", "note": "Dunkles Anthrazit, Anruf-Knöpfe in kräftigem Magenta.", "sign": "#26222B", "sign-hi": "#3A3442", "sign-lo": "#16131A", "sign-muted": "#E4DCE8", "board": "#1B171F", "foot-a": "#221E27", "foot-b": "#141117", "signal": "#D81B7A", "signal-hi": "#EC4B98", "signal-lo": "#BE0F68", "signal-press": "#B00D60", "on-signal": "#FFFFFF", "brand-ab": "#C4146E", "brand-ab-dark": "#F25FA6", "link": "#A8125F", "tint": "#F1E8EE", "paper": "#F7F3F6", "line": "#E7DCE3", "line-strong": "#CDBBC6", "muted": "#5C4E57", "ink": "#1F1620"}, "nachtblau": {"name": "Nachtblau & Gelb", "note": "Ruhiges Dunkelblau, Anruf in Signalgelb wie bei der Pannenhilfe.", "sign": "#12306A", "sign-hi": "#1D4A94", "sign-lo": "#0A1D45", "sign-muted": "#D4DFF2", "board": "#0B2150", "foot-a": "#0F2858", "foot-b": "#08183A", "signal": "#FFC21A", "signal-hi": "#FFD456", "signal-lo": "#F2AF00", "signal-press": "#E5A500", "on-signal": "#1A1300", "brand-ab": "#A97400", "brand-ab-dark": "#FFC21A", "link": "#1D4A94", "tint": "#E8EDF6", "paper": "#F2F5FA", "line": "#D9E0EC", "line-strong": "#B2BFD6", "muted": "#4A5670", "ink": "#0B1630"}, "rot": {"name": "Notdienst-Rot & Gelb", "note": "Kräftiges Rot wie ein Einsatzfahrzeug, Anruf in Gelb.", "sign": "#9A1C1C", "sign-hi": "#BE2A26", "sign-lo": "#651010", "sign-muted": "#F6D9D6", "board": "#5A0E0E", "foot-a": "#6E1313", "foot-b": "#470A0A", "signal": "#FFCC2E", "signal-hi": "#FFDB66", "signal-lo": "#F5B800", "signal-press": "#E8AE00", "on-signal": "#1F1500", "brand-ab": "#B42318", "brand-ab-dark": "#FFCC2E", "link": "#9A1C1C", "tint": "#F6EAE8", "paper": "#FAF4F3", "line": "#EBDCDA", "line-strong": "#D3BAB6", "muted": "#644B48", "ink": "#2A1110"}, "gruen": {"name": "Tankstellen-Grün & Gelb", "note": "Sattes Grün, Anruf in warmem Gelb.", "sign": "#0F5132", "sign-hi": "#177046", "sign-lo": "#08351F", "sign-muted": "#D3EADD", "board": "#0A3A24", "foot-a": "#0D4229", "foot-b": "#072B1A", "signal": "#FFB703", "signal-hi": "#FFCB45", "signal-lo": "#F2A500", "signal-press": "#E59C00", "on-signal": "#1C1300", "brand-ab": "#B97C00", "brand-ab-dark": "#FFB703", "link": "#177046", "tint": "#E6F0EA", "paper": "#F2F7F4", "line": "#D8E5DD", "line-strong": "#B1C9BA", "muted": "#46604F", "ink": "#0B2416"}, "schwarz": {"name": "Schwarz & Orange", "note": "Fast schwarz und schlicht, Anruf in Orange.", "sign": "#1D2124", "sign-hi": "#2E3439", "sign-lo": "#111416", "sign-muted": "#DDE2E5", "board": "#16191B", "foot-a": "#1A1D20", "foot-b": "#0F1113", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#B85400", "tint": "#ECEEEF", "paper": "#F4F5F6", "line": "#DFE2E4", "line-strong": "#BCC2C6", "muted": "#50585E", "ink": "#121517"}};
+  var THEMES = {"pink": {"name": "Pink, Grau & Orange", "note": "Äußerer Bereich in Pink, Anruf-Knöpfe in Orange, Hintergrund und Fußbereich grau.", "sign": "#C8146F", "sign-hi": "#E2338C", "sign-lo": "#8F0A4E", "sign-muted": "#F8D7E8", "board": "#7A0843", "foot-a": "#4A4D52", "foot-b": "#2C2E32", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#C4146E", "brand-ab-dark": "#F25FA6", "link": "#A8125F", "tint": "#E7E7EA", "paper": "#F1F1F3", "line": "#DCDDE0", "line-strong": "#BCBEC3", "muted": "#55585E", "ink": "#17181A", "paper-dark": "#17191C"}, "petrol": {"name": "Petrol & Orange", "note": "Der jetzige Stand: Verkehrsschild-Petrol, Anruf in Orange.", "sign": "#0B4650", "sign-hi": "#136572", "sign-lo": "#06323B", "sign-muted": "#CFE3E4", "board": "#062A31", "foot-a": "#07343D", "foot-b": "#04252B", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#0D5C69", "tint": "#E8EFEF", "paper": "#F2F5F5", "line": "#DBE4E3", "line-strong": "#B3C5C4", "muted": "#4A636B", "ink": "#0A2228", "paper-dark": "#051A1E"}, "magenta": {"name": "Magenta & Anthrazit", "note": "Dunkles Anthrazit, Anruf-Knöpfe in kräftigem Magenta.", "sign": "#26222B", "sign-hi": "#3A3442", "sign-lo": "#16131A", "sign-muted": "#E4DCE8", "board": "#1B171F", "foot-a": "#221E27", "foot-b": "#141117", "signal": "#D81B7A", "signal-hi": "#EC4B98", "signal-lo": "#BE0F68", "signal-press": "#B00D60", "on-signal": "#FFFFFF", "brand-ab": "#C4146E", "brand-ab-dark": "#F25FA6", "link": "#A8125F", "tint": "#F1E8EE", "paper": "#F7F3F6", "line": "#E7DCE3", "line-strong": "#CDBBC6", "muted": "#5C4E57", "ink": "#1F1620", "paper-dark": "#0E0E11"}, "nachtblau": {"name": "Nachtblau & Gelb", "note": "Ruhiges Dunkelblau, Anruf in Signalgelb wie bei der Pannenhilfe.", "sign": "#12306A", "sign-hi": "#1D4A94", "sign-lo": "#0A1D45", "sign-muted": "#D4DFF2", "board": "#0B2150", "foot-a": "#0F2858", "foot-b": "#08183A", "signal": "#FFC21A", "signal-hi": "#FFD456", "signal-lo": "#F2AF00", "signal-press": "#E5A500", "on-signal": "#1A1300", "brand-ab": "#A97400", "brand-ab-dark": "#FFC21A", "link": "#1D4A94", "tint": "#E8EDF6", "paper": "#F2F5FA", "line": "#D9E0EC", "line-strong": "#B2BFD6", "muted": "#4A5670", "ink": "#0B1630", "paper-dark": "#09111F"}, "rot": {"name": "Notdienst-Rot & Gelb", "note": "Kräftiges Rot wie ein Einsatzfahrzeug, Anruf in Gelb.", "sign": "#9A1C1C", "sign-hi": "#BE2A26", "sign-lo": "#651010", "sign-muted": "#F6D9D6", "board": "#5A0E0E", "foot-a": "#6E1313", "foot-b": "#470A0A", "signal": "#FFCC2E", "signal-hi": "#FFDB66", "signal-lo": "#F5B800", "signal-press": "#E8AE00", "on-signal": "#1F1500", "brand-ab": "#B42318", "brand-ab-dark": "#FFCC2E", "link": "#9A1C1C", "tint": "#F6EAE8", "paper": "#FAF4F3", "line": "#EBDCDA", "line-strong": "#D3BAB6", "muted": "#644B48", "ink": "#2A1110", "paper-dark": "#210B0C"}, "gruen": {"name": "Tankstellen-Grün & Gelb", "note": "Sattes Grün, Anruf in warmem Gelb.", "sign": "#0F5132", "sign-hi": "#177046", "sign-lo": "#08351F", "sign-muted": "#D3EADD", "board": "#0A3A24", "foot-a": "#0D4229", "foot-b": "#072B1A", "signal": "#FFB703", "signal-hi": "#FFCB45", "signal-lo": "#F2A500", "signal-press": "#E59C00", "on-signal": "#1C1300", "brand-ab": "#B97C00", "brand-ab-dark": "#FFB703", "link": "#177046", "tint": "#E6F0EA", "paper": "#F2F7F4", "line": "#D8E5DD", "line-strong": "#B1C9BA", "muted": "#46604F", "ink": "#0B2416", "paper-dark": "#091813"}, "schwarz": {"name": "Schwarz & Orange", "note": "Fast schwarz und schlicht, Anruf in Orange.", "sign": "#1D2124", "sign-hi": "#2E3439", "sign-lo": "#111416", "sign-muted": "#DDE2E5", "board": "#16191B", "foot-a": "#1A1D20", "foot-b": "#0F1113", "signal": "#FF8A1F", "signal-hi": "#FFA94A", "signal-lo": "#F47B0B", "signal-press": "#F07A0C", "on-signal": "#1C1305", "brand-ab": "#E36C00", "brand-ab-dark": "#FF8A1F", "link": "#A84C00", "tint": "#ECEEEF", "paper": "#F4F5F6", "line": "#DFE2E4", "line-strong": "#BCC2C6", "muted": "#50585E", "ink": "#121517", "paper-dark": "#0C0E10"}};
   var REPOS = ["trawigo67-web/falschtanknotdienst-de", "trawigo67-web/tankdoktor-de"];
   var OWN = "trawigo67-web/tankdoktor-de";
   var KEY = 'tankAdminKey';
@@ -117,33 +117,70 @@ button.link{background:none;border:0;padding:0;color:var(--muted);text-decoratio
   /* Text sicher nach Base64 und zurück (Umlaute, Arabisch, Kyrillisch) */
   function toB64(s) { var bytes = new TextEncoder().encode(s), bin = ''; for (var i = 0; i < bytes.length; i += 32768) { bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768)); } return btoa(bin); }
   function fromB64(b) { var bin = atob(b.replace(/\s/g, '')), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) { u[i] = bin.charCodeAt(i); } return new TextDecoder().decode(u); }
-  function api(token, repo, path, opts) {
+  function gh(token, repo, path, opts) {
     opts = opts || {};
-    return fetch('https://api.github.com/repos/' + repo + '/contents/' + path, {
+    return fetch('https://api.github.com/repos/' + repo + '/' + path, {
       method: opts.method || 'GET', cache: 'no-store',
       headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
       body: opts.body ? JSON.stringify(opts.body) : undefined
     }).then(function (r) {
-      if (r.status === 404 && opts.allow404) { return null; }
       if (!r.ok) { var e = new Error('http ' + r.status); e.status = r.status; throw e; }
       return r.json();
     });
   }
-  function apply(token, repo, theme) {
+  /* Eine HTML-Seite auf das Thema umstellen: Thema, Verweise auf brand/<thema>/ (Symbole, Teilen-Bild, Manifest)
+     und die Farbe der Browserleiste (steht fest im HTML, damit sie auch ohne JavaScript stimmt) */
+  function rewrite(html, theme) {
+    var t = THEMES[theme];
+    return html.replace(/(<html[^>]*data-theme=")[a-z]+(")/, '$1' + theme + '$2')
+      .replace(/(\bbrand\/)[a-z]+(\/)/g, '$1' + theme + '$2')
+      .replace(/(<meta name="theme-color" media="\(prefers-color-scheme: light\)" content=")#[0-9A-Fa-f]{6}(")/, '$1' + t.paper + '$2')
+      .replace(/(<meta name="theme-color" media="\(prefers-color-scheme: dark\)" content=")#[0-9A-Fa-f]{6}(")/, '$1' + t['paper-dark'] + '$2');
+  }
+  /* Alle Seiten (Startseite, Unterseiten, Fehlerseite, Admin-Bereich), theme.txt, /favicon.ico und /og.png
+     in EINEM Schritt umstellen: kein halber Zwischenstand, und GitHub baut die Website nur einmal neu.
+     Neue Unterseiten sind automatisch dabei, weil jede HTML-Datei im Repository umgestellt wird. */
+  function apply(token, repo, theme, retried) {
     var msgText = 'Farbthema: ' + THEMES[theme].name + ' (Admin-Bereich)';
-    return api(token, repo, 'index.html').then(function (f) {
-      var html = fromB64(f.content);
-      /* Farbthema umstellen, dazu die Verweise auf App-Symbol, Teilen-Bild und Manifest (liegen je Thema unter brand/<thema>/) */
-      var next = html.replace(/(<html[^>]*data-theme=")[a-z]+(")/, '$1' + theme + '$2').replace(/(\bbrand\/)[a-z]+(\/)/g, '$1' + theme + '$2');
-      if (next === html && html.indexOf('data-theme="' + theme + '"') < 0) { throw new Error('marker'); }
-      if (next === html) { return; }
-      return api(token, repo, 'index.html', { method: 'PUT', body: { message: msgText, content: toB64(next), sha: f.sha } });
+    var head, base, files = {}, changes = [];
+    return gh(token, repo, 'git/ref/heads/main').then(function (ref) {
+      head = ref.object.sha;
+      return gh(token, repo, 'git/commits/' + head);
+    }).then(function (c) {
+      base = c.tree.sha;
+      return gh(token, repo, 'git/trees/' + base + '?recursive=1');
+    }).then(function (tr) {
+      if (tr.truncated) { throw new Error('tree'); }
+      tr.tree.forEach(function (f) { if (f.type === 'blob') { files[f.path] = f; } });
+      if (!files['index.html']) { throw new Error('marker'); }
+      return Object.keys(files).filter(function (p) { return /\.html$/.test(p); }).reduce(function (p, path) {
+        return p.then(function () {
+          return gh(token, repo, 'git/blobs/' + files[path].sha).then(function (b) {
+            var html = fromB64(b.content), next = rewrite(html, theme);
+            if (path === 'index.html' && next.indexOf('data-theme="' + theme + '"') < 0) { throw new Error('marker'); }
+            if (next !== html) { changes.push({ path: path, mode: files[path].mode, type: 'blob', content: next }); }
+          });
+        });
+      }, Promise.resolve());
     }).then(function () {
-      return api(token, repo, 'theme.txt', { allow404: true });
-    }).then(function (f) {
-      var body = { message: msgText, content: toB64(theme + '\n') };
-      if (f) { if (fromB64(f.content).trim() === theme) { return; } body.sha = f.sha; }
-      return api(token, repo, 'theme.txt', { method: 'PUT', body: body });
+      /* /favicon.ico und /og.png zeigen auf die fertigen Dateien des Themas unter brand/<thema>/ (kein Hochladen nötig) */
+      ['favicon.ico', 'og.png'].forEach(function (name) {
+        var src = files['brand/' + theme + '/' + name];
+        if (src && (!files[name] || files[name].sha !== src.sha)) { changes.push({ path: name, mode: '100644', type: 'blob', sha: src.sha }); }
+      });
+      return files['theme.txt'] ? gh(token, repo, 'git/blobs/' + files['theme.txt'].sha) : null;
+    }).then(function (b) {
+      if (!b || fromB64(b.content).trim() !== theme) { changes.push({ path: 'theme.txt', mode: '100644', type: 'blob', content: theme + '\n' }); }
+      if (!changes.length) { return null; }
+      return gh(token, repo, 'git/trees', { method: 'POST', body: { base_tree: base, tree: changes } }).then(function (tr) {
+        return gh(token, repo, 'git/commits', { method: 'POST', body: { message: msgText, tree: tr.sha, parents: [head] } });
+      }).then(function (c) {
+        return gh(token, repo, 'git/refs/heads/main', { method: 'PATCH', body: { sha: c.sha } });
+      });
+    }).catch(function (err) {
+      /* Hat in der Zwischenzeit jemand anderes etwas hochgeladen: einmal von vorn, auf dem neuen Stand */
+      if (err.status === 422 && !retried) { return apply(token, repo, theme, true); }
+      throw err;
     });
   }
   document.getElementById('save').addEventListener('click', function () {
@@ -162,7 +199,7 @@ button.link{background:none;border:0;padding:0;color:var(--muted);text-decoratio
       })
       .catch(function (e) {
         if (e.status === 401 || e.status === 403) { store(KEY, null); syncKey(); say('Der Zugangsschlüssel stimmt nicht oder ist abgelaufen. Bitte neu eingeben.', 'err'); }
-        else if (e.status === 409) { say('Gerade wurde gleichzeitig etwas geändert. Bitte in einer Minute noch einmal versuchen.', 'err'); }
+        else if (e.status === 409 || e.status === 422) { say('Gerade wurde gleichzeitig etwas geändert. Bitte in einer Minute noch einmal versuchen.', 'err'); }
         else { say('Das hat nicht geklappt. Bitte Internetverbindung prüfen und noch einmal versuchen.', 'err'); }
       })
       .then(function () { btn.disabled = false; });
