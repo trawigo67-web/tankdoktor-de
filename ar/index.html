@@ -1179,20 +1179,20 @@ html:root[data-theme="schwarz"]{--sign:#1D2124;--sign-hi:#2E3439;--sign-lo:#1114
       <a href="#datenschutz" data-i18n="footer.privacy">الخصوصية</a>
     </nav>
     <div class="footer-langs" role="group" aria-label="Sprache, Language, Dil">
-      <a href="/" hreflang="de" data-lang="de" lang="de" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-de"/></svg><span>Deutsch</span></a>
-      <a href="/en/" hreflang="en" data-lang="en" lang="en" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-en"/></svg><span>English</span></a>
-      <a href="/tr/" hreflang="tr" data-lang="tr" lang="tr" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-tr"/></svg><span>Türkçe</span></a>
-      <a href="/ar/" hreflang="ar" data-lang="ar" lang="ar" aria-pressed="true"><svg class="flag" aria-hidden="true"><use href="#f-ar"/></svg><span>العربية</span></a>
-      <a href="/ru/" hreflang="ru" data-lang="ru" lang="ru" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-ru"/></svg><span>Русский</span></a>
-      <a href="/uk/" hreflang="uk" data-lang="uk" lang="uk" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-uk"/></svg><span>Українська</span></a>
-      <a href="/pl/" hreflang="pl" data-lang="pl" lang="pl" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-pl"/></svg><span>Polski</span></a>
-      <a href="/ro/" hreflang="ro" data-lang="ro" lang="ro" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-ro"/></svg><span>Română</span></a>
-      <a href="/es/" hreflang="es" data-lang="es" lang="es" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-es"/></svg><span>Español</span></a>
-      <a href="/bg/" hreflang="bg" data-lang="bg" lang="bg" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-bg"/></svg><span>Български</span></a>
-      <a href="/fr/" hreflang="fr" data-lang="fr" lang="fr" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-fr"/></svg><span>Français</span></a>
-      <a href="/it/" hreflang="it" data-lang="it" lang="it" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-it"/></svg><span>Italiano</span></a>
-      <a href="/sq/" hreflang="sq" data-lang="sq" lang="sq" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-sq"/></svg><span>Shqip</span></a>
-      <a href="/el/" hreflang="el" data-lang="el" lang="el" aria-pressed="false"><svg class="flag" aria-hidden="true"><use href="#f-el"/></svg><span>Ελληνικά</span></a>
+      <a href="/" hreflang="de" data-lang="de" lang="de"><svg class="flag" aria-hidden="true"><use href="#f-de"/></svg><span>Deutsch</span></a>
+      <a href="/en/" hreflang="en" data-lang="en" lang="en"><svg class="flag" aria-hidden="true"><use href="#f-en"/></svg><span>English</span></a>
+      <a href="/tr/" hreflang="tr" data-lang="tr" lang="tr"><svg class="flag" aria-hidden="true"><use href="#f-tr"/></svg><span>Türkçe</span></a>
+      <a href="/ar/" hreflang="ar" data-lang="ar" lang="ar" aria-current="page"><svg class="flag" aria-hidden="true"><use href="#f-ar"/></svg><span>العربية</span></a>
+      <a href="/ru/" hreflang="ru" data-lang="ru" lang="ru"><svg class="flag" aria-hidden="true"><use href="#f-ru"/></svg><span>Русский</span></a>
+      <a href="/uk/" hreflang="uk" data-lang="uk" lang="uk"><svg class="flag" aria-hidden="true"><use href="#f-uk"/></svg><span>Українська</span></a>
+      <a href="/pl/" hreflang="pl" data-lang="pl" lang="pl"><svg class="flag" aria-hidden="true"><use href="#f-pl"/></svg><span>Polski</span></a>
+      <a href="/ro/" hreflang="ro" data-lang="ro" lang="ro"><svg class="flag" aria-hidden="true"><use href="#f-ro"/></svg><span>Română</span></a>
+      <a href="/es/" hreflang="es" data-lang="es" lang="es"><svg class="flag" aria-hidden="true"><use href="#f-es"/></svg><span>Español</span></a>
+      <a href="/bg/" hreflang="bg" data-lang="bg" lang="bg"><svg class="flag" aria-hidden="true"><use href="#f-bg"/></svg><span>Български</span></a>
+      <a href="/fr/" hreflang="fr" data-lang="fr" lang="fr"><svg class="flag" aria-hidden="true"><use href="#f-fr"/></svg><span>Français</span></a>
+      <a href="/it/" hreflang="it" data-lang="it" lang="it"><svg class="flag" aria-hidden="true"><use href="#f-it"/></svg><span>Italiano</span></a>
+      <a href="/sq/" hreflang="sq" data-lang="sq" lang="sq"><svg class="flag" aria-hidden="true"><use href="#f-sq"/></svg><span>Shqip</span></a>
+      <a href="/el/" hreflang="el" data-lang="el" lang="el"><svg class="flag" aria-hidden="true"><use href="#f-el"/></svg><span>Ελληνικά</span></a>
     </div>
     <p class="footer-fine"><span data-i18n="footer.alias">الموقع متاح أيضًا على falschtanknotdienst.de.</span> <span data-i18n="footer.fine">هذا الموقع يعمل دون ملفات تعريف الارتباط ودون تتبّع.</span></p>
   </div>
@@ -1992,7 +1992,11 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
     });
     doc.title = l === 'de' ? orig.title : (d['meta.title'] || orig.title);
     if (metaDesc) { metaDesc.setAttribute('content', l === 'de' ? orig.desc : (d['meta.desc'] || orig.desc)); }
-    $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === l)); });
+    $$('[data-lang]').forEach(function (b) {
+      var on = b.getAttribute('data-lang') === l;
+      if (b.tagName === 'A') { if (on) { b.setAttribute('aria-current', 'page'); } else { b.removeAttribute('aria-current'); } }
+      else { b.setAttribute('aria-pressed', String(on)); }
+    });
     var cur = $('[data-lang-current]');
     var curName = $('.lang-list [data-lang="' + l + '"] .name');
     if (cur && curName) { cur.textContent = curName.textContent; }
