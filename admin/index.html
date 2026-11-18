@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../icons/nachtblau.svg">
 <title>Admin: Farbthema | Tankdoktor</title>
 <style>
 :root{--bg:#F3F4F6;--card:#fff;--ink:#14181C;--muted:#5B6570;--line:#DDE1E6;--accent:#14181C;--ok:#1A7446;--err:#B8251A;
@@ -136,6 +137,15 @@ button.link{background:none;border:0;padding:0;color:var(--muted);text-decoratio
       if (next === html && html.indexOf('data-theme="' + theme + '"') < 0) { throw new Error('marker'); }
       if (next === html) { return; }
       return api(token, repo, 'index.html', { method: 'PUT', body: { message: msgText, content: toB64(next), sha: f.sha } });
+    }).then(function () {
+      /* App-Symbol und Leistenfarbe im Web-Manifest mitziehen */
+      return api(token, repo, 'site.webmanifest', { allow404: true }).then(function (f) {
+        if (!f) { return; }
+        var txt = fromB64(f.content);
+        var next = txt.replace(/icons\/[a-z]+-(192|512)\.png/g, 'icons/' + theme + '-$1.png').replace(/("theme_color":\s*")#[0-9A-Fa-f]{6}(")/, '$1' + THEMES[theme].sign + '$2');
+        if (next === txt) { return; }
+        return api(token, repo, 'site.webmanifest', { method: 'PUT', body: { message: msgText, content: toB64(next), sha: f.sha } });
+      });
     }).then(function () {
       return api(token, repo, 'theme.txt', { allow404: true });
     }).then(function (f) {
