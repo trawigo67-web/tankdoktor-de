@@ -611,6 +611,19 @@ svg{direction:ltr}
   .chip:hover{background:var(--tint)}
 }
 
+/* Erklärvideo: lädt erst nach dem Antippen, hochkant auf dem Handy, quer ab Tablet-Breite */
+.vid-box{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;margin-inline:auto;border-radius:var(--r-sign);overflow:hidden;background:#17181A;box-shadow:var(--shadow-sign)}
+.vid-play{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;color:inherit;font:inherit}
+.vid-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vid-btn{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--signal);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .15s ease}
+.vid-btn svg{width:44px;height:44px;fill:var(--on-signal)}
+.vid-play:hover .vid-btn{transform:scale(1.06)}
+.vid-play:focus-visible{outline:3px solid var(--signal);outline-offset:-6px}
+.vid-label{position:absolute;left:50%;top:calc(50% + 58px);transform:translateX(-50%);max-width:90%;padding:8px 16px;border-radius:999px;background:rgba(23,24,26,.82);color:#fff;font:700 1rem/1.2 var(--font-body);text-align:center}
+.vid-box video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#17181A}
+@media (min-width:641px){.vid-box{max-width:880px;aspect-ratio:16/9}}
+@media (prefers-reduced-motion:reduce){.vid-btn{transition:none}}
+
 html:root[data-theme="pink"]{--sign:#C8146F;--sign-hi:#E2338C;--sign-lo:#8F0A4E;--sign-muted:#F8D7E8;--board:#7A0843;--foot-a:#4A4D52;--foot-b:#2C2E32;--signal:#FF8A1F;--signal-hi:#FFA94A;--signal-lo:#F47B0B;--signal-press:#F07A0C;--on-signal:#1C1305;}
 @media (prefers-color-scheme:light){html:root[data-theme="pink"]{--brand-ab:#C4146E;--link:#A8125F;--tint:#E7E7EA;--paper:#F1F1F3;--line:#DCDDE0;--line-strong:#BCBEC3;--muted:#55585E;--ink:#17181A;}}
 @media (prefers-color-scheme:dark){html:root[data-theme="pink"]{--brand-ab:#F25FA6;--link:#FFA94A}}
@@ -771,6 +784,20 @@ html:root[data-theme="schwarz"]{--sign:#1D2124;--sign-hi:#2E3439;--sign-lo:#1114
       <li><div class="fact"><svg class="ico fact-ico" aria-hidden="true"><use href="#i-tag"/></svg><span class="fact-t" data-i18n="facts.price.t">Festpreis vorab</span><span class="fact-s" data-i18n="facts.price.s">ohne Anfahrtspauschale</span></div></li>
       <li><div class="fact"><svg class="ico fact-ico" aria-hidden="true"><use href="#i-pin"/></svg><span class="fact-t" data-i18n="facts.site.t">Direkt vor Ort</span><span class="fact-s" data-i18n="facts.site.s">Abschleppen meist nicht nötig</span></div></li>
     </ul>
+  </section>
+
+  <section class="section wrap vid" id="video" aria-labelledby="vid-h">
+    <div class="section-head">
+      <h2 id="vid-h" data-i18n="vid.h">In 60 Sekunden: Was jetzt tun?</h2>
+      <p class="intro" data-i18n="vid.intro">Das kurze Video zeigt Schritt für Schritt, wie Sie sich nach dem Falschtanken richtig verhalten.</p>
+    </div>
+    <div class="vid-box" id="vid-box">
+      <button type="button" class="vid-play" id="vid-play">
+        <img class="vid-poster" id="vid-poster" src="video/de-h.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+        <span class="vid-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.500z"/></svg></span>
+        <span class="vid-label" data-i18n="vid.play">Video abspielen</span>
+      </button>
+    </div>
   </section>
 
   <section class="section wrap check" id="check" aria-labelledby="check-h">
@@ -1337,6 +1364,9 @@ var I18N = {
     "p5.s1": "Check the approval: is there an E10 in a circle inside your fuel flap?",
     "p5.s2": "If so, drive on gently and fill up with the right grade next time.",
     "p5.s3": "Not approved or not sure? Do not start the engine and give us a quick call.",
+    "vid.h": "In 60 seconds: what to do now",
+    "vid.intro": "This short video shows step by step what to do after putting in the wrong fuel.",
+    "vid.play": "Play video",
     "steps.h": "How the call-out works",
     "steps.1h": "You call us",
     "steps.1p": "Tell us what went into the tank and where you are. You get the fixed price and our arrival time right away.",
@@ -1501,6 +1531,9 @@ var I18N = {
     "p5.s1": "Onayı kontrol edin: Depo kapağınızda daire içinde E10 yazıyor mu?",
     "p5.s2": "Yazıyorsa sakin bir şekilde yola devam edin, bir dahaki sefere doğru türü alın.",
     "p5.s3": "Onay yoksa veya emin değilseniz motoru çalıştırmayın ve kısaca arayın.",
+    "vid.h": "60 saniyede: Şimdi ne yapmalı?",
+    "vid.intro": "Kısa video, yanlış yakıt doldurduktan sonra ne yapmanız gerektiğini adım adım gösteriyor.",
+    "vid.play": "Videoyu oynat",
     "steps.h": "Hizmet nasıl ilerler",
     "steps.1h": "Bizi ararsınız",
     "steps.1p": "Ne yakıt aldığınızı ve nerede olduğunuzu söylersiniz. Sabit fiyatı ve ne zaman geleceğimizi hemen öğrenirsiniz.",
@@ -1876,7 +1909,7 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
 (function () {
   'use strict';
 
-  var CFG = {"regions": {"west": {"tel": "+491742432222", "num": "0174 243 22 22", "wa": "491742432222"}, "by": {"tel": "+491704044555", "num": "0170 404 45 55", "wa": "491704044555"}, "rm": {"tel": "+4915211303570", "num": "01521 130 35 70", "wa": "4915211303570"}}, "soon": {"rm": {"center": [50.1109, 8.6821], "radiusKm": 60}, "rm-hd": {"center": [49.44, 8.58], "radiusKm": 22, "region": "rm"}}, "price": {"car": "350", "camper": "450"}, "waText": "Hallo, ich habe falsch getankt und brauche Hilfe. Mein Standort: ", "packs": {"ar": "297b9b16", "bg": "ac1bc213", "el": "49f6751e", "es": "a17c0bce", "fr": "553008cf", "it": "f4d8327b", "pl": "ad74b462", "ro": "79e47e87", "ru": "105cc270", "sq": "11c9cd89", "uk": "e4da7838"}};
+  var CFG = {"regions": {"west": {"tel": "+491742432222", "num": "0174 243 22 22", "wa": "491742432222"}, "by": {"tel": "+491704044555", "num": "0170 404 45 55", "wa": "491704044555"}, "rm": {"tel": "+4915211303570", "num": "01521 130 35 70", "wa": "4915211303570"}}, "soon": {"rm": {"center": [50.1109, 8.6821], "radiusKm": 60}, "rm-hd": {"center": [49.44, 8.58], "radiusKm": 22, "region": "rm"}}, "price": {"car": "350", "camper": "450"}, "waText": "Hallo, ich habe falsch getankt und brauche Hilfe. Mein Standort: ", "packs": {"ar": "7d84f99d", "bg": "4815eee6", "el": "42083a27", "es": "76bcedd2", "fr": "dbc2131c", "it": "b8217faf", "pl": "4b6c8c4d", "ro": "4a8888de", "ru": "d98ffdd4", "sq": "8b3fce6f", "uk": "95e7b017"}};
   var doc = document;
   var root = doc.documentElement;
 
@@ -2804,6 +2837,27 @@ var GEO_STATES = {"BE":["gqX}jeB_Cb@sGc@gGbA_AgAoI`Aw@rAaEwExFiAk@gB`HmCx@kBzEnA
       navigator.permissions.query({ name: 'geolocation' }).then(function (st) { if (st && st.state === 'granted') { locate(true); } }, function () { /* Abfrage nicht möglich */ });
     } catch (e) { /* ältere Browser */ }
   }
+})();
+
+/* Erklärvideo: Vorschaubild passend zu Sprache und Bildschirm, Video erst nach dem Antippen laden */
+(function () {
+  var box = document.getElementById('vid-box'); if (!box) { return; }
+  var btn = document.getElementById('vid-play'), img = document.getElementById('vid-poster');
+  var wide = window.matchMedia ? window.matchMedia('(min-width: 641px)') : { matches: true };
+  function name() { return (document.documentElement.lang === 'tr' ? 'tr' : 'de') + (wide.matches ? '-h' : '-v'); }
+  function poster() { if (img && img.parentNode) { var s = 'video/' + name() + '.jpg'; if (img.getAttribute('src') !== s) { img.setAttribute('src', s); } } }
+  poster();
+  if (wide.addEventListener) { wide.addEventListener('change', poster); } else if (wide.addListener) { wide.addListener(poster); }
+  if (window.MutationObserver) { new MutationObserver(poster).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] }); }
+  btn.addEventListener('click', function () {
+    var n = name(), v = document.createElement('video');
+    v.controls = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+    v.poster = 'video/' + n + '.jpg'; v.src = 'video/' + n + '.mp4';
+    v.setAttribute('aria-labelledby', 'vid-h');
+    box.replaceChild(v, btn);
+    var pr = v.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+    v.focus();
+  });
 })();
 
 </script>
